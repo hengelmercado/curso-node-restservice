@@ -39,9 +39,9 @@
                 headers: {'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
             })
-            .then( resp => resp,json() )
+            .then( resp => resp.json() )
             .then( data =>console.log("Nuestro server", data ) )
-            .catch( error => console.log(error) );
+            .catch( console.log );
         }
 
         function signOut() {
