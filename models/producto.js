@@ -1,10 +1,11 @@
 const {Schema, model} = require('mongoose');
+const { message } = require('../dictionary/dictionary');
 
 const ProductoSchema = Schema({
 
     nombre: {
         type: String,
-        require: [true, 'El nombre es obligatorio']
+        require: [true, message.nombre_req]
     },
     estado: {
         type: Boolean,
@@ -24,7 +25,9 @@ const ProductoSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'Categoria',
         require: true
-    }
+    },
+    descripcion: { type: String },
+    disponible: { type: Boolean, default: true }
 
 });
 

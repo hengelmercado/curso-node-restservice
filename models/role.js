@@ -1,9 +1,10 @@
 const {Schema, model} = require('mongoose');
+const { message } = require('../dictionary/dictionary');
 
 const RoleSchema = Schema({
     rol: {
         type: String,
-        require: [true, 'El rol es obligatorio']
+        require: [true, message.role_req]
     }
 });
 

@@ -1,18 +1,19 @@
 const { Schema, model } = require('mongoose');
+const { message } = require('../dictionary/dictionary');
 
 const UsuarioSchema = Schema({
     nombre: {
         type: String,
-        required: [true, 'El nombre es obligatorio']
+        required: [true, message.nombre_req]
     },
     correo: {
         type: String,
-        required: [true, 'El correo es obligatorio'],
+        required: [true, message.correo_req],
         unique: true
     },
     password: {
         type: String,
-        required: [true, 'La contraseña es obligatorio']
+        required: [true, message.pass_req]
     },
     img: {
         type: String

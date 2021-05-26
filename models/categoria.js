@@ -1,10 +1,11 @@
 const {Schema, model} = require('mongoose');
+const { message } = require('../dictionary/dictionary');
 
 const CategoriaSchema = Schema({
 
     nombre: {
         type: String,
-        require: [true, 'El nombre es obligatorio']
+        require: [true, message.nombre_req]
     },
     estado: {
         type: Boolean,

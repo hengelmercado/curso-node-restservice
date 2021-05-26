@@ -59,7 +59,8 @@ const actualizarCategoria = async(req, res = response) => {
     const { id } = req.params;
     const {usuario,  estado, ...datos} = req.body;
     
-    datos.nombre = datos.nombre.toUpperCase();
+    nombre = datos.nombre.toUpperCase();
+    datos.nombre = nombre;
     datos.usuario = req.usuario._id;
 
     const categoriaDB = await Categoria.findOne({nombre});
@@ -69,11 +70,11 @@ const actualizarCategoria = async(req, res = response) => {
         });
     }
 
-    const categoria = Categoria.findByIdAndUpdate(id, datos, {new: true});
+    const categoria = await Categoria.findByIdAndUpdate(id, datos, {new: true});
 
     res.json({
         categoria
-    })
+    });
 
 
 }
